@@ -1,14 +1,78 @@
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import {
+  Chart,
+  ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  BarController,
+  BubbleController,
+  DoughnutController,
+  LineController,
+  PieController,
+  PolarAreaController,
+  RadarController,
+  ScatterController,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  TimeSeriesScale,
+  Decimation,
+  Filler,
+  Legend,
+  Title,
+  Tooltip,
+  SubTitle,
+} from "chart.js";
 
-var map = L.map("app").setView([0, 0], 10);
+Chart.register(
+  ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  BarController,
+  BubbleController,
+  DoughnutController,
+  LineController,
+  PieController,
+  PolarAreaController,
+  RadarController,
+  ScatterController,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  TimeSeriesScale,
+  Decimation,
+  Filler,
+  Legend,
+  Title,
+  Tooltip,
+  SubTitle
+);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
-
-L.marker([51.5, -0.09])
-  .addTo(map)
-  .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
-  .openPopup();
+const ctx = document.getElementById("myChart").getContext("2d");
+// Chart.defaults.global.defaultFontFamily = "lato";
+// Chart.defaults.global.defaultFontSize = 18;
+// Chart.defaults.global.defaultFontColor = "orange";
+let massPopChart = new Chart(myChart, {
+  type: "bar",
+  data: {
+    labels: ["a", "b"],
+    datasets: [
+      {
+        label: "moslem",
+        data: [1, 2],
+        backgroundColor: ["red", "green"],
+        borderWidth: 10,
+        borderColor: "black",
+        hoverBackgroundColor: "gray",
+        hoverBorderWidth: 2,
+        hoverBorderColor: "yellow",
+      },
+    ],
+    options: { title: { display: true, text: "monfaredman is run" } },
+  },
+});
